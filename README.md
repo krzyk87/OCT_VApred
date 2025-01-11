@@ -19,17 +19,39 @@ model.load_state_dict(torch.load('model_weights/best_model_fold_1.pt'))
 ```
 ## Model Training Scripts
 
-Two standalone training scripts are provided for training the models on the DIME and INDEX datasets:
+The repository contains two main training scripts under the `scripts` folder:
+- `train_DIME.py`: Training script for the DIME dataset
+- `train_INDEX.py`: Training script for the INDEX dataset
 
-1. **train_DIME.py**: This script is used to train the model using the DIME dataset.
-2. **train_INDEX.py**: This script is used to train the model using the INDEX dataset.
+### Running the Training Scripts
 
-To run either script, simply execute it from the command line with Python:
-
+To run these scripts, first activate your conda environment:
 ```bash
-python train_DIME.py  # For DIME dataset
-python train_INDEX.py  # For INDEX dataset
+conda activate your_environment_name
 ```
+Then you can run either script using the following format:
+DIME Training
+```bash python
+train_DIME.py \
+--output_dir path/to/output \
+--image_dir path/to/oct/images \
+--clinical_data_path path/to/clinical_data.xlsx
+```
+INDEX Training
+```bash python
+train_INDEX.py \
+--output_dir path/to/output \
+--image_dir path/to/oct/images \
+--clinical_data_path path/to/clinical_data.xlsx
+```
+
+### Optional Arguments
+Both scripts accept the following optional arguments:
+- `--batch_size`: Batch size for training (default: 16)
+- `--image_size`: Size to resize images (default: 512)
+- `--learning_rate`: Initial learning rate (default: 0.001)
+- `--epochs`: Number of epochs to train (default: 100)
+- `--seed`: Random seed (default: 42)
 
 ## License
 This repository is licensed under the MIT License (See License Info). If you are intending to use this repository for commercial use cases, please check the licenses of all Python packages referenced in the Setup section / described in the `requirements.txt` and `environment.yml`.
