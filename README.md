@@ -19,6 +19,7 @@ To run these scripts, first activate your conda environment:
 conda activate your_environment_name
 ```
 Then you can run either script using the following format:
+
 DIME Training
 ```bash python
 train_DIME.py \
