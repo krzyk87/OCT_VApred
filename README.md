@@ -13,9 +13,11 @@ The pre-trained model weights are stored in the `model_weights/` directory. Insi
 
 To use the model weights, download the corresponding `.pt` file for the fold you are interested in, and load it using the PyTorch as follows:
 
-`import torch
+```python
+import torch
 model = YourModelClass()
-model.load_state_dict(torch.load('model_weights/DIME_weights/best_model_fold_1.pt'))`
+model.load_state_dict(torch.load('model_weights/best_model_fold_1.pt'))
+```
 
 ## License
 This repository is licensed under the MIT License (See License Info). If you are intending to use this repository for commercial use cases, please check the licenses of all Python packages referenced in the Setup section / described in the `requirements.txt` and `environment.yml`.
