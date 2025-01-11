@@ -1,5 +1,5 @@
 """
-Training script for OCT image analysis with clinical data integration.
+Training script for OCT image analysis with clinical data integration on INDEX Dataset.
 This script implements a deep learning model combining OCT images with clinical features
 to predict visual acuity outcomes. It uses EfficientNet as the backbone with a custom
 attention mechanism for clinical feature integration.
