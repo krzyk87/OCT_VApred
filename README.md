@@ -15,7 +15,7 @@ To use the model weights, download the corresponding `.pt` file for the fold you
 
 ```python
 import torch
-model = YourModelClass()
+model = EfficientNetWithClinical()
 model.load_state_dict(torch.load('model_weights/best_model_fold_1.pt'))
 ```
 
