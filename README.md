@@ -1,7 +1,7 @@
 # Visual-Acuity-Prediction-with-Multi-Modal-Deep-Learning
 Repo for code relating to the paper 'Enhancing Post-Treatment Visual Acuity Prediction with Multi-Modal Deep Learning on Small-scale Clinical and OCT Datasets'.
 
-![Architecture Draft](architecture.png)
+![Architecture Draft](model_architecture.png)
 
 ## Setup
 To set up the environment for this project, use the `environment.yml` file to create a conda environment with the necessary dependencies by running `conda env create -f environment.yml`. Once the environment is created, activate it using `conda activate your-environment-name`. If you need to install any additional pip dependencies, you can use the `requirements.txt` file by running `pip install -r requirements.txt`. After completing these steps, your environment will be set up and ready to use.
