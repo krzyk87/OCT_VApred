@@ -50,7 +50,7 @@ The repository contains two main k-fold evaluation to replicate results reported
 - `evaluate_INDEX.py`: Evaluation script for the INDEX dataset
 
 ### Running Evaluation Scripts
-####DIME Evaluation
+#### DIME Evaluation
 ```bash python
 python evaluate_DIME.py \
 --model_weights_dir path/to/model/weights \
