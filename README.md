@@ -43,7 +43,30 @@ Both scripts accept the following optional arguments:
 - `--epochs`: Number of epochs to train (default: 100)
 - `--seed`: Random seed (default: 42)
 
-  
+## Model Evaluation Scripts
+
+The repository contains two main k-fold evaluation to replicate results reported in the paper, found in the `scripts` folder:
+- `evaluate_DIME.py`: Evaluation script for the DIME dataset
+- `evaluate_INDEX.py`: Evaluation script for the INDEX dataset
+
+### Running Evaluation Scripts
+####DIME Evaluation
+```bash python
+python evaluate_DIME.py \
+--model_weights_dir path/to/model/weights \
+--output_dir path/to/output \
+--image_dir path/to/oct/images \
+--clinical_data_path path/to/clinical_data.xlsx
+```
+#### INDEX Evaluation
+```bash python
+python evaluate_INDEX.py \
+--model_weights_dir path/to/model/weights \
+--output_dir path/to/output \
+--image_dir path/to/oct/images \
+--clinical_data_path path/to/clinical_data.xlsx
+```
+
 ## Model Weights
 
 The pre-trained model weights are stored in the `model_weights/` directory. Inside this directory, you will find subdirectories for each dataset: `DIME_weights/` and `INDEX_weights/`. Each folder contains the model weights for the 5 folds, stored as `best_model_fold_1.pt`, `best_model_fold_2.pt`, and so on.
