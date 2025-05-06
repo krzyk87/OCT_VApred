@@ -152,12 +152,12 @@ best_model_fold_4.pt
 best_model_fold_5.pt
 ```
 
-To use the model weights in your own scripts, ensure you adjust the model instantiation to match the architecture defined in the respective `model.py` or `model_index.py` file:
+To use the model weights in your own scripts, ensure you adjust the model instantiation to match the architecture defined in the respective `model.py` file:
 
 ```python
 import torch
 from scripts.DIME.model import EfficientNetWithClinical as DIME_Model
-from scripts.INDEX.model_index import EfficientNetWithClinical as INDEX_Model
+from scripts.INDEX.model import EfficientNetWithClinical as INDEX_Model
 
 # For DIME
 dime_model = DIME_Model()
