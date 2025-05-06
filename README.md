@@ -182,6 +182,5 @@ If you intend to use this repository for commercial purposes, please verify the 
 
 If you use this code, please cite:
 
-> Anderson, M., Corona, V., Stankiewicz, A., Habib, M., Steel, D.H. and Obara, B.,  
-> _Enhancing Post-Treatment Visual Acuity Prediction with Multimodal Deep Learning on Small-scale Clinical and OCT Datasets_.  
-> In Medical Imaging with Deep Learning.
+Anderson, M., Corona, V., Stankiewicz, A., Habib, M., Steel, D.H. and Obara, B., 2025. *Enhancing post-treatment visual acuity prediction with multimodal deep learning on small-scale clinical and OCT datasets*. Medical Imaging with Deep Learning.
+
