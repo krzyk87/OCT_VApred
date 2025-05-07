@@ -28,7 +28,7 @@ To set up the environment for this project:
     pip install -r requirements.txt
     ```
 
-Your environment is now ready to use!
+Your environment is now ready to use.
 
 ---
 
@@ -37,7 +37,7 @@ Your environment is now ready to use!
 The repository organizes the training and evaluation scripts for each dataset within dedicated subdirectories under the `scripts` folder:
 
 - `scripts/DIME/`: Contains scripts for the DIME dataset (`data_loader.py`, `engine.py`, `evaluate.py`, `model.py`, `train.py`)
-- `scripts/INDEX/`: Contains scripts for the INDEX dataset (`data_loader_index.py`, `evaluate_index.py`, `model_index.py`, `train_index.py`)
+- `scripts/INDEX/`: Contains scripts for the INDEX dataset (`data_loader.py`, `evaluate.py`, `model.py`, `train.py`)
 
 ---
 
@@ -46,7 +46,7 @@ The repository organizes the training and evaluation scripts for each dataset wi
 The main training scripts are located in the respective dataset folders:
 
 - `scripts/DIME/train.py`: Training script for the DIME dataset  
-- `scripts/INDEX/train_index.py`: Training script for the INDEX dataset
+- `scripts/INDEX/train.py`: Training script for the INDEX dataset
 
 ---
 
@@ -103,7 +103,7 @@ Refer to the individual training script (`train.py` for DIME, `train_index.py` f
 The main k-fold evaluation scripts are located in the respective dataset folders:
 
 - `scripts/DIME/evaluate.py`: Evaluation script for the DIME dataset  
-- `scripts/INDEX/evaluate_index.py`: Evaluation script for the INDEX dataset
+- `scripts/INDEX/evaluate.py`: Evaluation script for the INDEX dataset
 
 ---
 
@@ -126,7 +126,7 @@ python evaluate.py \
 
 ```bash
 cd scripts/INDEX
-python evaluate_index.py \
+python evaluate.py \
   --model_weights_dir path/to/model/weights \
   --output_dir path/to/output \
   --image_dir path/to/oct/images \
@@ -164,7 +164,7 @@ dime_model = DIME_Model()
 dime_model.load_state_dict(torch.load('model_weights/DIME_weights/best_model_fold_1.pt'))
 
 # For INDEX
-index_model = INDEX_Model(num_clinical_features=2)  # Adjust num_clinical_features if needed
+index_model = INDEX_Model(num_clinical_features=2) 
 index_model.load_state_dict(torch.load('model_weights/INDEX_weights/best_model_fold_1.pt'))
 ```
 
