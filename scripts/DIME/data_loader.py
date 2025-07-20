@@ -93,18 +93,61 @@ class OCTDatasetWithClinical(Dataset):
         """Return the number of slices in the dataset"""
         return len(self.slice_info)
 
-def get_transforms(image_size=512, is_training=False):
-    """
-    Get image transformations for evaluation.
-
-    Args:
-        image_size (int): Target image size
-        is_training (bool): Whether to include training augmentations (should be False for evaluation)
-
-    Returns:
-        albumentations.Compose: Composition of transforms
-    """
-    return A.Compose([
-        A.Normalize(mean=0.5, std=0.5),
-        ToTensorV2(),
-    ])
+def get_transforms(image_size=512, is_training=True):
+    if is_training:
+        return A.Compose([
+            A.Rotate(
+                limit=(11),  # Degrees
+                p=0.8,
+                border_mode=0  # cv2.BORDER_CONSTANT
+            ),
+            A.HorizontalFlip(p=0.5),
+            # Shift without scaling or rotation to isolate shifting
+            A.ShiftScaleRotate(
+                shift_limit_x=16.13 / image_size,  # ≈0.0548 (fraction of width)
+                shift_limit_y=27.43 / image_size,  # ≈0.1478 (fraction of height)
+                scale_limit=0,                     # No scaling
+                rotate_limit=0,                    # No rotation
+                p=0.8,
+                border_mode=0
+            ),
+            
+            # Gaussian Blur with kernel size adjusted to 3-7
+            A.GaussianBlur(
+                blur_limit=(3, 5),
+                p=0.3,
+            ),
+            
+            # Gaussian Noise with variance adjusted to 0.10-6.90
+            A.GaussNoise(
+                var_limit=(0.10, 8.63),
+                mean=0,
+                p=0.3,
+            ),
+            
+            # Random Brightness and Contrast
+            A.RandomBrightnessContrast(
+                brightness_limit=0.1,
+                contrast_limit=0.1,
+                p=0.2
+            ),
+            
+            # Coarse Dropout with dimensions adjusted based on image size
+            A.CoarseDropout(
+                max_holes=8,
+                max_height=20,
+                max_width=20,
+                min_holes=2,
+                min_height=8,
+                min_width=8,
+                p=0.2
+            ),
+            
+            A.Normalize(mean=0.5, std=0.5),
+            ToTensorV2(),
+        ])
+    else:
+        return A.Compose([
+            A.Normalize(mean=0.5, std=0.5),
+            ToTensorV2(),
+        ])
